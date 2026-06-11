@@ -42,3 +42,27 @@ test('post order with correct data should receive code 201', async ({ request })
   // check that body.courierId is number type
   expect(typeof responseBody.courierId).toBe('number')
 })
+test('get order with non-numeric incorrect id ', async ({ request }) => {
+  const response = await request.get('https://backend.tallinn-learning.ee/test-orders/n')
+
+  const statusCode = response.status()
+
+  console.log('response status:', statusCode)
+  expect(statusCode).toBe(400)
+})
+test('get order with - incorrect id ', async ({ request }) => {
+  const response = await request.get('https://backend.tallinn-learning.ee/test-orders/-1')
+
+  const statusCode = response.status()
+
+  console.log('response status:', statusCode)
+  expect(statusCode).toBe(400)
+})
+test('get order with long incorrect id ', async ({ request }) => {
+  const response = await request.get('https://backend.tallinn-learning.ee/test-orders/99')
+
+  const statusCode = response.status()
+
+  console.log('response status:', statusCode)
+  expect(statusCode).toBe(400)
+})
