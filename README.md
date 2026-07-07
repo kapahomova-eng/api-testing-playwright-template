@@ -109,3 +109,41 @@ The workflow file is already provided at `.github/workflows/playwright.yml`.
 └── package.json
 ```
 
+## Checklist Homework 10
+
+```
+| # | Scenario | Test Data |
+|---|---|---|
+| | Get order SUCCESS |	orderId = { 1 .. 10 } |
+| | Get order FAILURE incorrect ID|	orderId = 99|
+| | Get order FAILURE negative ID|	orderId = -1 |
+| | Get order FAILURE empty ID|	orderId = ""|
+| | Get order FAILURE non-numeric ID|	orderId = "n" |
+| | Put - order with negative id |	orderId = -1|
+| | Put - order with non-numeric id |	orderId = n|
+| | Put - order with incorrect id |	orderId = 99 |
+| | Put - order with correct id |	orderId = { 1 .. 10} |
+| | Put - Unauthorized user API-key is empty |	 |
+| | Put - Unauthorized user incorrect API-key |	 12345 |
+| | Put - Request body with typos |	customer name with number instead of string |
+| | Put - Request body is empty |	|
+| | Delete - order with negative id |	orderId = -1 |
+| | Delete - order with non-numeric id |	orderId = n |
+| | Delete - order with incorrect id |	orderId = 99 |
+| | Delete - order with correct id |	orderId = { 1 .. 10 } |
+| | Delete - Unauthorized user API-key is empty |	 |
+| | Delete - Unauthorized user incorrect API-key |	 12345 |
+| | Delete - Delete recently deleted order  |orderId = { 1 ..10} |
+| | POST - Create new order  | body is correct |
+| | POST - Create new order with lost field | status is lost |
+| | POST - Create new order with incorrect field | courier ID is incorrect|
+| | Get order info and current time -Positive  | orderId = { 1 .. 10 } |
+| | Get order info and current time -Negative  | orderId = -1 |
+| | Get order info and current time -Invalid header  | typo in the header|
+| | Get order payment status -Positive  | orderId = { 1 .. 10 } |
+| | Get order payment status -Negative  | orderId = 91 |
+| | Get order payment status -Invalid header  | typo in the header|
+| | Get all orders - Positive  |  |
+| | Get all orders - 429 error  | |
+| | Get API key with username and password - Positive  |  |
+| | get API key with correct user invalid creds  | |

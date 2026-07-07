@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { Login } from '../../dto/login-dto'
 import { createOrder, fetchJwt } from '../../helpers/api-helper'
+import { GetOrder400ErrorSchema } from '../../dto/validation-schemas'
 
 let loginDto: Login
 export const baseUrl = 'https://backend.tallinn-learning.ee'
@@ -38,5 +39,13 @@ test.describe('Authorization flow', () => {
     const orders = await response.json()
     console.log('Orders:', JSON.stringify(orders, null, 2))
     expect(orders).toBeTruthy()
+  })
+  test.skip('should not login with incorrect password', async ({ request }) => {
+    const response = await request.post(baseUrl + loginEndpoint, {
+      data: new Login(loginDto.username, 'wrong-password'),
+    })
+    const responseBody = await response.json()
+    expect(response.status()).toBe(401)
+    GetOrder400ErrorSchema.parse(responseBody)
   })
 })
