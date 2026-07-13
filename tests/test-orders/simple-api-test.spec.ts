@@ -24,7 +24,7 @@ const baseUrl = 'https://backend.tallinn-learning.ee'
 export const testOrdersEndpoint = '/test-orders'
 const allOrdersURL = '/get_orders'
 const authURL = '/auth'
-const apiKey = process.env['TEST_ORDERS-API-KEY']!
+const apiKey = process.env['TEST_ORDERS_API_KEY']!
 const requestBodyFailed = {
   status: 'OPEN',
   courierId: 0,
