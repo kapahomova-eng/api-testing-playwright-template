@@ -43,6 +43,11 @@ jobs:
         env:
           DL_USERNAME: ${{ secrets.DL_USERNAME }}
           DL_PASSWORD: ${{ secrets.DL_PASSWORD }}
+          PRODUCTS_API_KEY: ${{ secrets.PRODUCTS_API_KEY }}
+          TEST_ORDERS_API_KEY: ${{ secrets.TEST_ORDERS_API_KEY }}
+          X_APPLICATION_NAME: ${{ secrets.X_APPLICATION_NAME }}
+          X_SESSION_ID: ${{ secrets.X_SESSION_ID }}
+
         run: |
           echo "Running Playwright to execute API tests..."
           npx playwright test
