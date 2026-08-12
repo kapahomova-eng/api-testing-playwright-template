@@ -24,7 +24,7 @@ import {
   testOrdersEndpoint,
   allOrdersURL,
   authURL,
-  apiKey
+  apiKey,
 } from '../../configs/api-enndpoints'
 
 // const baseUrl = 'https://backend.tallinn-learning.ee'

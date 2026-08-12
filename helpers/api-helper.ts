@@ -8,9 +8,6 @@ import {
   testOrdersEndpoint,
 } from '../configs/api-enndpoints'
 
-
-
-
 export async function fetchJwt(request: APIRequestContext, login: Login): Promise<string> {
   const authResponse = await request.post(baseUrl + loginEndpoint, {
     data: login,
@@ -50,10 +47,11 @@ export async function getResponse(request: APIRequestContext, url: string) {
   }
 }
 
-
-export async function postRequest(request: APIRequestContext, url: string,body: unknown,
-):
-  Promise<{
+export async function postRequest(
+  request: APIRequestContext,
+  url: string,
+  body: unknown,
+): Promise<{
   response: APIResponse
   statusCode: number
   responseBody: unknown
@@ -76,22 +74,19 @@ export async function parseResponse(response: APIResponse) {
   }
 }
 
-export async function getOrderWithTime(
-  request: APIRequestContext,
-  orderId: number,
-) {
+export async function getOrderWithTime(request: APIRequestContext, orderId: number) {
   const response = await request.get(`${baseUrl}${testOrdersEndpoint}/time/${orderId}`, {
     headers: {
       'x-application-name': process.env.X_APPLICATION_NAME!,
       'x-session-id': process.env.X_SESSION_ID!,
     },
-  });
+  })
 
   return {
     response,
     statusCode: response.status(),
     responseBody: await response.json(),
-  };
+  }
 }
 
 export async function getOrderWithPayment(request: APIRequestContext, orderId: number) {
@@ -118,7 +113,7 @@ export async function getAPIKey(
   responseBody: unknown
 }> {
   const response = await request.get(url, {
-     params,
+    params,
   })
 
   return {

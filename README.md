@@ -62,11 +62,11 @@ npx playwright show-report
 
 ## 🔧 Other Scripts
 
-| Script | Description |
-|---|---|
-| `npm test` | Run all Playwright tests |
-| `npm run lint` | Lint test files with ESLint |
-| `npm run prettier:check` | Check formatting with Prettier |
+| Script                    | Description                          |
+| ------------------------- | ------------------------------------ |
+| `npm test`                | Run all Playwright tests             |
+| `npm run lint`            | Lint test files with ESLint          |
+| `npm run prettier:check`  | Check formatting with Prettier       |
 | `npm run prettier:format` | Auto-format test files with Prettier |
 
 ---
@@ -147,3 +147,4 @@ The workflow file is already provided at `.github/workflows/playwright.yml`.
 | | Get all orders - 429 error  | |
 | | Get API key with username and password - Positive  |  |
 | | get API key with correct user invalid creds  | |
+```
