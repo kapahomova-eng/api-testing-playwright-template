@@ -2,11 +2,12 @@ import { expect, test } from '@playwright/test'
 import { Login } from '../../dto/login-dto'
 import { createOrder, fetchJwt } from '../../helpers/api-helper'
 import { GetOrder400ErrorSchema } from '../../dto/validation-schemas'
+import { baseUrl, loginEndpoint, ordersEndpoint } from '../../configs/api-enndpoints'
 
 let loginDto: Login
-export const baseUrl = 'https://backend.tallinn-learning.ee'
+/*export const baseUrl = 'https://backend.tallinn-learning.ee'
 export const loginEndpoint = '/login/student'
-export const ordersEndpoint = '/orders'
+export const ordersEndpoint = '/orders'*/
 
 //unskip when ready to use
 test.describe('Authorization flow', () => {

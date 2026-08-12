@@ -1,8 +1,13 @@
 import { APIRequestContext, APIResponse, expect } from '@playwright/test'
 import { StatusCodes } from 'http-status-codes'
 import { Login } from '../dto/login-dto'
-import { baseUrl, loginEndpoint, ordersEndpoint } from '../tests/delivery/auth.spec'
-import { testOrdersEndpoint } from '../tests/test-orders/simple-api-test.spec'
+import {
+  baseUrl,
+  loginEndpoint,
+  ordersEndpoint,
+  testOrdersEndpoint,
+} from '../configs/api-enndpoints'
+
 
 
 
