@@ -48,6 +48,7 @@ jobs:
           X_APPLICATION_NAME: ${{ secrets.X_APPLICATION_NAME }}
           X_SESSION_ID: ${{ secrets.X_SESSION_ID }}
 
+
         run: |
           echo "Running Playwright to execute API tests..."
           npx playwright test
