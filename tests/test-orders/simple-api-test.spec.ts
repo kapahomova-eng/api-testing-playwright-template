@@ -19,12 +19,19 @@ import {
 } from '../../helpers/api-helper'
 import { OrderDto } from '../../dto/order-dto'
 import { z } from 'zod'
+import {
+  baseUrl,
+  testOrdersEndpoint,
+  allOrdersURL,
+  authURL,
+  apiKey,
+} from '../../configs/api-enndpoints'
 
-const baseUrl = 'https://backend.tallinn-learning.ee'
-export const testOrdersEndpoint = '/test-orders'
-const allOrdersURL = '/get_orders'
-const authURL = '/auth'
-const apiKey = process.env['TEST_ORDERS_API_KEY']!
+// const baseUrl = 'https://backend.tallinn-learning.ee'
+// const testOrdersEndpoint = '/test-orders'
+// const allOrdersURL = '/get_orders'
+// const authURL = '/auth'
+// const apiKey = process.env['TEST_ORDERS_API_KEY']!
 const requestBodyFailed = {
   status: 'OPEN',
   courierId: 0,

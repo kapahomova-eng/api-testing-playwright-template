@@ -2,8 +2,7 @@ name: Check formatting, linting, and run tests
 
 on:
   push:
-    branches:
-      [main, develop]
+    branches: [main, develop]
   pull_request:
     branches:
       - main
@@ -26,13 +25,13 @@ jobs:
 
       - name: Run Prettier check
         run: |
-            echo "Running Prettier to check for formatting issues..."
-            npm run prettier:check
+          echo "Running Prettier to check for formatting issues..."
+          npm run prettier:check
 
       - name: Run ESLint check
         run: |
-            echo "Running ESLint to check for linting issues..."
-            npm run lint 
+          echo "Running ESLint to check for linting issues..."
+          npm run lint
 
       - name: Run TypeScript compile check
         run: |
@@ -47,7 +46,6 @@ jobs:
           TEST_ORDERS_API_KEY: ${{ secrets.TEST_ORDERS_API_KEY }}
           X_APPLICATION_NAME: ${{ secrets.X_APPLICATION_NAME }}
           X_SESSION_ID: ${{ secrets.X_SESSION_ID }}
-
 
         run: |
           echo "Running Playwright to execute API tests..."
