@@ -50,13 +50,3 @@ jobs:
         run: |
           echo "Running Playwright to execute API tests..."
           npx playwright test
-
-    needs:
-    with:
-    permissions:
-    name:
-    uses:
-    strategy:
-    if:
-    secrets:
-    concurrency:
