@@ -9,12 +9,25 @@ import {
 } from '../configs/api-enndpoints'
 
 export async function fetchJwt(request: APIRequestContext, login: Login): Promise<string> {
-  const authResponse = await request.post(baseUrl + loginEndpoint, {
+  const url = baseUrl + loginEndpoint
+
+  console.log('Authorization URL:', url)
+  console.log('Username exists:', Boolean(login.username))
+  console.log('Password exists:', Boolean(login.password))
+
+  const authResponse = await request.post(url, {
     data: login,
   })
+
+  console.log('Authorization status:', authResponse.status())
+
   if (authResponse.status() !== StatusCodes.OK) {
+    const responseBody = await authResponse.text()
+    console.log('Authorization response:', responseBody)
+
     throw new Error(`Authorization failed. Status: ${authResponse.status()}`)
   }
+
   return await authResponse.text()
 }
 

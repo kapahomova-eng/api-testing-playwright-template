@@ -10,10 +10,18 @@ export const loginEndpoint = '/login/student'
 export const ordersEndpoint = '/orders'*/
 
 //unskip when ready to use
-test.describe('Authorization flow', () => {
-  test.beforeAll(() => {
-    loginDto = new Login(process.env['DL_USERNAME']!, process.env['DL_PASSWORD']!)
-  })
+test.beforeAll(() => {
+  const username = process.env.DL_USERNAME
+  const password = process.env.DL_PASSWORD
+
+  console.log('DL_USERNAME is set:', Boolean(username))
+  console.log('DL_PASSWORD is set:', Boolean(password))
+
+  if (!username || !password) {
+    throw new Error('DL_USERNAME or DL_PASSWORD is not defined')
+  }
+
+  loginDto = new Login(username, password)
 
   test('should login and receive authorization token', async ({ request }) => {
     const token = await fetchJwt(request, loginDto)
