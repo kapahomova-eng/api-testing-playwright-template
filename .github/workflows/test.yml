@@ -2,7 +2,7 @@ name: Check formatting, linting, and run tests
 
 on:
   push:
-    branches: [main, develop]
+    branches: [ main, develop ]
   pull_request:
     branches:
       - main
@@ -50,3 +50,13 @@ jobs:
         run: |
           echo "Running Playwright to execute API tests..."
           npx playwright test
+
+    needs:
+    with:
+    permissions:
+    name:
+    uses:
+    strategy:
+    if:
+    secrets:
+    concurrency:
